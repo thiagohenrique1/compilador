@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/thiago/Workspace/compilador/Lexico.cpp
+Lexico.h
+/home/thiago/Workspace/compilador/Lexico.h
+
+/home/thiago/Workspace/compilador/Lexico.h
+fstream
+-
+unordered_map
+-
+structs.h
+/home/thiago/Workspace/compilador/structs.h
+
+/home/thiago/Workspace/compilador/main.cpp
+iostream
+-
+unordered_map
+-
+time.h
+-
+Lexico.h
+/home/thiago/Workspace/compilador/Lexico.h
+
+/home/thiago/Workspace/compilador/structs.h
+iostream
+-
+

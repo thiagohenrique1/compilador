@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/compilador.dir/main.cpp.o CMakeFiles/compilador.dir/Lexico.cpp.o  -o compilador 
