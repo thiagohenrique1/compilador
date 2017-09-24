@@ -2,12 +2,11 @@
 
 using namespace std;
 
-Lexico::Lexico(const string arquivo, unordered_map<string, item_tabela> *tabela_simbolos) {
+Lexico::Lexico(const string arquivo) {
 	file.open(arquivo);
-	proxima_linha(0);
+	proxima_linha();
 	estado_atual = 1;
 
-	simbolos = tabela_simbolos;
 	preencher_tabela();
 }
 
@@ -18,7 +17,7 @@ item_tabela Lexico::prox_token() {
 		if(proximo_estado != 1) buffer += *char_ptr;
 		estado_atual = proximo_estado;
 		char_ptr++;
-		if(*char_ptr == '\0') proxima_linha(proximo_estado);
+		if(*char_ptr == '\0') proxima_linha();
 		proximo_estado = tabela_prox_estado[estado_atual][*char_ptr];
 	}
 	if(is_final(estado_atual)) {
@@ -28,10 +27,11 @@ item_tabela Lexico::prox_token() {
 		estado_atual = 1;
 		return item;
 	}
-	return {"erro",to_string(linha_num)};
+	string erro = get_erro(estado_atual,buffer);
+	return {"erro","Erro na linha "+to_string(linha_num)+": "+erro};
 }
 
-void Lexico::proxima_linha(int prox_estado) {
+void Lexico::proxima_linha() {
 	do {
 		getline(file, linha);
 		linha_num++;
@@ -119,6 +119,26 @@ void Lexico::preencher_tabela() {
 	for (int i = 7; i <= 21; ++i) {
 		tokens[i] = temp[i - 7];
 	}
+}
+
+string Lexico::get_erro(int estado, string buffer){
+    string erro;
+    switch(estado){
+		case 1:
+			erro = "Caractere invalido\n";
+			break;
+		case 3:
+			erro = "Depois do ponto deve ser inserido um digito em \""+buffer+"\"\n";
+			break;
+		case 4:
+			erro = "O expoente deve iniciar com um digito ou um sinal de + ou de -\n";
+			break;
+		case 5:
+			erro = "O valor do expoente nao foi inserido em \""+buffer+"\"\n";
+			break;
+		default: erro = "Caractere invalido\n";
+	}
+	return erro;
 }
 
 bool Lexico::is_final(int estado){

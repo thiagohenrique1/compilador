@@ -12,7 +12,7 @@ inicio
    leia B;
 
    B <- 2;
-   B <- 3;
+   B <- 3.;
    c <- B+1;
    c <- c+1;
     

@@ -6,29 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/home/thiago/Workspace/compilador/Lexico.cpp
+C:/Users/thiag/CLionProjects/compilador/Lexico.cpp
 Lexico.h
-/home/thiago/Workspace/compilador/Lexico.h
+C:/Users/thiag/CLionProjects/compilador/Lexico.h
 
-/home/thiago/Workspace/compilador/Lexico.h
+C:/Users/thiag/CLionProjects/compilador/Lexico.h
 fstream
 -
 unordered_map
 -
 structs.h
-/home/thiago/Workspace/compilador/structs.h
+C:/Users/thiag/CLionProjects/compilador/structs.h
 
-/home/thiago/Workspace/compilador/main.cpp
+C:/Users/thiag/CLionProjects/compilador/main.cpp
 iostream
 -
 unordered_map
 -
-time.h
--
 Lexico.h
-/home/thiago/Workspace/compilador/Lexico.h
+C:/Users/thiag/CLionProjects/compilador/Lexico.h
 
-/home/thiago/Workspace/compilador/structs.h
+C:/Users/thiag/CLionProjects/compilador/structs.h
 iostream
 -
 

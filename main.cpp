@@ -1,36 +1,39 @@
 #include <iostream>
 #include <unordered_map>
-#include <time.h>
 #include "Lexico.h"
 using namespace std;
 
+void inserir_palavras_chave(unordered_map<string, item_tabela> *tabela_simbolos);
+
 int main() {
-	unordered_map<string, item_tabela> symbol_table;
-	Lexico lexico("texto.alg", &symbol_table);
+	unordered_map<string, item_tabela> tabela_simbolos;
+	Lexico lexico("texto.alg");
 
-//	item_tabela it1 = { "ab", "a123"};
-//	symbol_table.insert(	{ "Third", it1 });
+	inserir_palavras_chave(&tabela_simbolos);
 
-	clock_t t;
-	t = clock();
 	while(true) {
 		item_tabela item = lexico.prox_token();
-		if(symbol_table.count(item.lexema) == 0 && item.token != "erro"){
-			symbol_table.insert({item.lexema,item});
+		if(tabela_simbolos.count(item.lexema) == 0 && item.token != "erro"){
+			if(item.token == "id") tabela_simbolos.insert({item.lexema,item});
 			cout << "Token: " + item.token + ", ";
 			cout << "Lexema: " + item.lexema << endl;
 		} else if(item.token == "erro"){
-			cout << "Erro na linha " + item.lexema << endl;
+            cout << item.lexema;
 			break;
+		} else {
+            item.token = tabela_simbolos[item.lexema].token;
+			cout << "Token: " + item.token + ", ";
+			cout << "Lexema: " + item.lexema << endl;
 		}
 		if(item.token == "eof") break;
 	}
-	t = clock() - t;
-	cout << "Tempo gasto: " + to_string(((float) t)/(1e-3*CLOCKS_PER_SEC)) + " ms" << endl;
-
-//	symbol_table["Third"] = 8;
-
-//	cout << symbol_table["Third"].lexema << endl;
-
 	return 0;
+}
+
+void inserir_palavras_chave(unordered_map<string, item_tabela> *tabela_simbolos) {
+	string palavras[12] = {"inicio","varinicio","varfim","escreva","leia", "se",
+						   "entao","fimse","fim","Inteiro","literal","real"};
+	for (int i = 0; i < 12; ++i) {
+		tabela_simbolos->insert({palavras[i],{palavras[i],palavras[i]}});
+	}
 }
