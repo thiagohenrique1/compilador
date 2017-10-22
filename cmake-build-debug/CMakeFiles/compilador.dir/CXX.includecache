@@ -6,27 +6,39 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/thiag/CLionProjects/compilador/Lexico.cpp
+/home/thiago/Documents/CLionProjects/compilador/Lexico.cpp
 Lexico.h
-C:/Users/thiag/CLionProjects/compilador/Lexico.h
+/home/thiago/Documents/CLionProjects/compilador/Lexico.h
 
-C:/Users/thiag/CLionProjects/compilador/Lexico.h
+/home/thiago/Documents/CLionProjects/compilador/Lexico.h
 fstream
 -
 unordered_map
 -
 structs.h
-C:/Users/thiag/CLionProjects/compilador/structs.h
+/home/thiago/Documents/CLionProjects/compilador/structs.h
 
-C:/Users/thiag/CLionProjects/compilador/main.cpp
+/home/thiago/Documents/CLionProjects/compilador/Sintatico.cpp
+Sintatico.h
+/home/thiago/Documents/CLionProjects/compilador/Sintatico.h
+
+/home/thiago/Documents/CLionProjects/compilador/Sintatico.h
+fstream
+-
+structs.h
+/home/thiago/Documents/CLionProjects/compilador/structs.h
+
+/home/thiago/Documents/CLionProjects/compilador/main.cpp
 iostream
 -
 unordered_map
 -
 Lexico.h
-C:/Users/thiag/CLionProjects/compilador/Lexico.h
+/home/thiago/Documents/CLionProjects/compilador/Lexico.h
+Sintatico.h
+/home/thiago/Documents/CLionProjects/compilador/Sintatico.h
 
-C:/Users/thiag/CLionProjects/compilador/structs.h
+/home/thiago/Documents/CLionProjects/compilador/structs.h
 iostream
 -
 

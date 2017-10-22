@@ -2,11 +2,23 @@
 #define COMPILADOR_STRUCTS_H
 
 #include <iostream>
+using namespace std;
 
 struct item_tabela {
-	std::string token;
-	std::string lexema;
-	std::string tipo;
+	string token;
+	string lexema;
+	string tipo;
+};
+
+struct action {
+	char acao;
+	uint8_t estado;
+};
+
+struct gram_item {
+	string symb;
+	uint8_t size;
+	string line;
 };
 
 #endif //COMPILADOR_STRUCTS_H

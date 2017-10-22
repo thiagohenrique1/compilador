@@ -1,6 +1,8 @@
 #include <iostream>
 #include <unordered_map>
 #include "Lexico.h"
+#include "Sintatico.h"
+
 using namespace std;
 
 void inserir_palavras_chave(unordered_map<string, item_tabela> *tabela_simbolos);
@@ -10,6 +12,8 @@ int main() {
 	Lexico lexico("texto.alg");
 
 	inserir_palavras_chave(&tabela_simbolos);
+
+	Sintatico sintatico("tabela.csv","gramatica.txt");
 
 	while(true) {
 		item_tabela item = lexico.prox_token();

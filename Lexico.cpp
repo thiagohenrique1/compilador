@@ -21,7 +21,7 @@ item_tabela Lexico::prox_token() {
 		proximo_estado = tabela_prox_estado[estado_atual][*char_ptr];
 	}
 	if(is_final(estado_atual)) {
-		string token = get_token()	;
+		string token = get_token();
 		item_tabela item = {token,buffer,};
 		buffer = "";
 		estado_atual = 1;

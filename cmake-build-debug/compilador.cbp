@@ -8,91 +8,101 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/thiag/CLionProjects/compilador/cmake-build-debug"/>
+				<Option working_dir="/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="compilador">
-				<Option output="C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/compilador.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/thiag/CLionProjects/compilador/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 compilador"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="compilador/fast">
-				<Option output="C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/compilador.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/thiag/CLionProjects/compilador/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 compilador/fast"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="C:/Users/thiag/CLionProjects/compilador/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/thiag/CLionProjects/compilador/cmake-build-debug"/>
+				<Option working_dir="/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/thiag/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="compilador">
+				<Option output="/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/compilador" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 compilador"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="compilador/fast">
+				<Option output="/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/compilador" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 compilador/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/thiag/CLionProjects/compilador/Lexico.cpp">
+		<Unit filename="/home/thiago/Documents/CLionProjects/compilador/Lexico.cpp">
 			<Option target="compilador"/>
 		</Unit>
-		<Unit filename="C:/Users/thiag/CLionProjects/compilador/Lexico.h">
+		<Unit filename="/home/thiago/Documents/CLionProjects/compilador/Lexico.h">
 			<Option target="compilador"/>
 		</Unit>
-		<Unit filename="C:/Users/thiag/CLionProjects/compilador/main.cpp">
+		<Unit filename="/home/thiago/Documents/CLionProjects/compilador/Sintatico.cpp">
 			<Option target="compilador"/>
 		</Unit>
-		<Unit filename="C:/Users/thiag/CLionProjects/compilador/structs.h">
+		<Unit filename="/home/thiago/Documents/CLionProjects/compilador/Sintatico.h">
 			<Option target="compilador"/>
 		</Unit>
-		<Unit filename="C:/Users/thiag/CLionProjects/compilador/CMakeLists.txt">
+		<Unit filename="/home/thiago/Documents/CLionProjects/compilador/main.cpp">
+			<Option target="compilador"/>
+		</Unit>
+		<Unit filename="/home/thiago/Documents/CLionProjects/compilador/structs.h">
+			<Option target="compilador"/>
+		</Unit>
+		<Unit filename="/home/thiago/Documents/CLionProjects/compilador/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

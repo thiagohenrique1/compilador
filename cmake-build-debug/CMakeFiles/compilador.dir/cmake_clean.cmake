@@ -1,10 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/compilador.dir/main.cpp.obj"
-  "CMakeFiles/compilador.dir/Lexico.cpp.obj"
+  "CMakeFiles/compilador.dir/main.cpp.o"
+  "CMakeFiles/compilador.dir/Lexico.cpp.o"
+  "CMakeFiles/compilador.dir/Sintatico.cpp.o"
   "compilador.pdb"
-  "compilador.exe"
-  "compilador.exe.manifest"
-  "libcompilador.dll.a"
+  "compilador"
 )
 
 # Per-language clean rules from dependency scanning.

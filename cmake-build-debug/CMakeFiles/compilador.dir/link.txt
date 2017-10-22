@@ -1,3 +1,1 @@
-"C:\Program Files\JetBrains\CLion 2017.2.2\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\compilador.dir/objects.a
-C:\MinGW\bin\ar.exe cr CMakeFiles\compilador.dir/objects.a @CMakeFiles\compilador.dir\objects1.rsp
-C:\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\compilador.dir/objects.a -Wl,--no-whole-archive  -o compilador.exe -Wl,--out-implib,libcompilador.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\compilador.dir\linklibs.rsp
+/usr/bin/c++  -g   CMakeFiles/compilador.dir/main.cpp.o CMakeFiles/compilador.dir/Lexico.cpp.o CMakeFiles/compilador.dir/Sintatico.cpp.o  -o compilador 
