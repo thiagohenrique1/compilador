@@ -7,12 +7,12 @@ inicio
 
    escreva "Digite um nome:";
    leia A;
-
+{nao ler}
    escreva "Digite um numero:";
    leia B;
 
    B <- 2;
-   B <- 3.;
+   B <- 3.5;
    c <- B+1;
    c <- c+1;
     

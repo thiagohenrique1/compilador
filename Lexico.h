@@ -11,6 +11,7 @@ using std::unordered_map;
 class Lexico {
 
 	private:
+		unordered_map<string, item_tabela> *tabela_simbolos;
 		uint8_t tabela_prox_estado[22][256] = {{0}};
 		std::ifstream file;
 		string linha;
@@ -27,7 +28,7 @@ class Lexico {
     	string get_erro(int estado, string buffer);
 
 	public:
-		Lexico(string arquivo);
+		Lexico(string arquivo, unordered_map<string, item_tabela> *tabela_simbolos);
 		item_tabela prox_token();
 
 };

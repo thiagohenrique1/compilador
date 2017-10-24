@@ -2,7 +2,8 @@
 
 using namespace std;
 
-Lexico::Lexico(const string arquivo) {
+Lexico::Lexico(const string arquivo, unordered_map<string, item_tabela> *tabela_simbolos){
+	this->tabela_simbolos = tabela_simbolos;
 	file.open(arquivo);
 	proxima_linha();
 	estado_atual = 1;
@@ -11,7 +12,7 @@ Lexico::Lexico(const string arquivo) {
 }
 
 item_tabela Lexico::prox_token() {
-	if(file.eof()) return {"eof","eof"};
+	if(file.eof()) return {"$","eof"};
 	int proximo_estado = tabela_prox_estado[estado_atual][*char_ptr];
 	while (proximo_estado != 0) {
 		if(proximo_estado != 1) buffer += *char_ptr;
@@ -25,7 +26,8 @@ item_tabela Lexico::prox_token() {
 		item_tabela item = {token,buffer,};
 		buffer = "";
 		estado_atual = 1;
-		return item;
+		if(token != "comentario") return item;
+		else return prox_token();
 	}
 	string erro = get_erro(estado_atual,buffer);
 	return {"erro","Erro na linha "+to_string(linha_num)+": "+erro};
@@ -44,6 +46,8 @@ void Lexico::proxima_linha() {
 
 string Lexico::get_token() {
 	if(estado_atual >= 7 && estado_atual <= 21){
+		if(tabela_simbolos->count(buffer) != 0 && (*tabela_simbolos)[buffer].token != "id")
+			return (*tabela_simbolos)[buffer].token;
 		return tokens[estado_atual];
 	}
 	return "erro";
@@ -113,9 +117,12 @@ void Lexico::preencher_tabela() {
 
 
 //	Relaciona estado final com o token classificado
-	string temp[15] = {"Num","Num","Num", "Literal", "Comentario",
-					   "id", "OPR", "OPR", "OPR", "RCB", "OPM",
-					   "AB_P", "FC_P", "PT_V","EOF"};
+//	string temp[15] = {"Num","Num","Num", "Literal", "Comentario",
+//					   "id", "OPR", "OPR", "OPR", "RCB", "OPM",
+//					   "AB_P", "FC_P", "PT_V","EOF"};
+	string temp[15] = {"num","num","num", "literal", "comentario",
+					   "id", "opr", "opr", "opr", "rcb", "opm",
+					   "(", ")", ";","$"};
 	for (int i = 7; i <= 21; ++i) {
 		tokens[i] = temp[i - 7];
 	}

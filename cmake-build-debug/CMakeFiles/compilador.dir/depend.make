@@ -5,6 +5,7 @@ CMakeFiles/compilador.dir/Lexico.cpp.o: ../Lexico.cpp
 CMakeFiles/compilador.dir/Lexico.cpp.o: ../Lexico.h
 CMakeFiles/compilador.dir/Lexico.cpp.o: ../structs.h
 
+CMakeFiles/compilador.dir/Sintatico.cpp.o: ../Lexico.h
 CMakeFiles/compilador.dir/Sintatico.cpp.o: ../Sintatico.cpp
 CMakeFiles/compilador.dir/Sintatico.cpp.o: ../Sintatico.h
 CMakeFiles/compilador.dir/Sintatico.cpp.o: ../structs.h
