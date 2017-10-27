@@ -16,6 +16,7 @@ using std::string;
 class Sintatico {
 
 	private:
+		const char* char_ptr;
 		string terminais[num_terminais];
 		string nao_terminais[num_nao_terminais];
 		action tabela_actions[num_estados][num_terminais];
@@ -29,6 +30,7 @@ class Sintatico {
 
 		Lexico lexico;
 
+		string prox_valor(char delim);
 		void ler_arquivos();
 		void inserir_palavras_chave();
 		int get_indice_terminal(string simbolo);

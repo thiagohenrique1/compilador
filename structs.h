@@ -12,7 +12,7 @@ struct item_tabela {
 
 struct action {
 	char acao;
-	uint8_t estado;
+	uint8_t num;
 };
 
 struct gram_item {

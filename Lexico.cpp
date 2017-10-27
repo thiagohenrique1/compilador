@@ -26,7 +26,11 @@ item_tabela Lexico::prox_token() {
 		item_tabela item = {token,buffer,};
 		buffer = "";
 		estado_atual = 1;
-		if(token != "comentario") return item;
+		if(token != "comentario") {
+			if(tabela_simbolos->count(item.lexema) == 0)
+				(*tabela_simbolos)[item.lexema] = item;
+			return item;
+		}
 		else return prox_token();
 	}
 	string erro = get_erro(estado_atual,buffer);
