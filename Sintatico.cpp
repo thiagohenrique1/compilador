@@ -2,23 +2,34 @@
 
 using namespace std;
 
-Sintatico::Sintatico(string arquivo_tabela, string arquivo_gramatica, string fonte) : lexico(fonte,&tabela_simbolos) {
+Sintatico::Sintatico(string arquivo_tabela, string arquivo_gramatica, string erros, string fonte) : lexico(fonte,&tabela_simbolos) {
 	file_tab.open(arquivo_tabela);
 	file_gram.open(arquivo_gramatica);
+	file_erros.open(erros);
 	ler_arquivos();
 	inserir_palavras_chave();
 }
 
 void Sintatico::executar() {
-	string entrada = lexico.prox_token().token;
+	item_tabela entrada = lexico.prox_token();
+	if(entrada.token == "erro") {
+		cout << entrada.lexema << endl;
+		return;
+	}
+	cout << "Token lido: " + entrada.token << endl;
 	pilha.push(0);
 	while (true) {
 		uint8_t estado_topo = pilha.top();
-		int entrada_indice = get_indice_terminal(entrada);
+		int entrada_indice = get_indice_terminal(entrada.token);
 		action action = tabela_actions[estado_topo][entrada_indice];
 		if (action.acao == 'S') {
 			pilha.push(action.num);
-			entrada = lexico.prox_token().token;
+			entrada = lexico.prox_token();
+			if(entrada.token == "erro") {
+				cout << entrada.lexema << endl;
+				break;
+			}
+			cout << "Token lido: " + entrada.token << endl;
 		} else if (action.acao == 'R') {
 			gram_item regra = tabela_gram[action.num];
 			for (int i = 0; i < regra.size; ++i) pilha.pop();
@@ -29,8 +40,8 @@ void Sintatico::executar() {
 		} else if (action.acao == 'A') {
 			cout << "Aceito" << endl;
 			break;
-		} else {
-			cout << "Erro" << endl;
+		} else if (action.acao == 'E'){
+			cout << "Erro sintático na linha " + to_string(lexico.get_pos()) + ": " + erros[action.num]<< endl;
 			break;
 		}
 	}
@@ -85,6 +96,15 @@ void Sintatico::ler_arquivos() {
 		tabela_gram[i].size = 0;
 		while(!prox_valor(' ').empty()) tabela_gram[i].size++;
 	}
+
+	getline(file_erros, linha);
+	while(!file_erros.eof()) {
+		char_ptr = linha.c_str();
+		int pos = stoi(prox_valor(','));
+		erros[pos] = prox_valor('\0');
+		getline(file_erros, linha);
+	}
+
 }
 
 string Sintatico::prox_valor(char delim){

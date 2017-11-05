@@ -20,6 +20,7 @@ item_tabela Lexico::prox_token() {
 		char_ptr++;
 		if(*char_ptr == '\0') proxima_linha();
 		proximo_estado = tabela_prox_estado[estado_atual][*char_ptr];
+		if(proximo_estado > 1) linha_ultimo_token = linha_num;
 	}
 	if(is_final(estado_atual)) {
 		string token = get_token();
@@ -34,7 +35,7 @@ item_tabela Lexico::prox_token() {
 		else return prox_token();
 	}
 	string erro = get_erro(estado_atual,buffer);
-	return {"erro","Erro na linha "+to_string(linha_num)+": "+erro};
+	return {"erro","Erro léxico na linha "+to_string(linha_num)+": "+erro};
 }
 
 void Lexico::proxima_linha() {
@@ -154,6 +155,10 @@ string Lexico::get_erro(int estado, string buffer){
 
 bool Lexico::is_final(int estado){
 	return estado >= 7 && estado <= 21;
+}
+
+int Lexico::get_pos(){
+	return linha_ultimo_token;
 }
 
 

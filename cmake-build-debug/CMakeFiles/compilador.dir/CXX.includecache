@@ -35,8 +35,6 @@ Lexico.h
 /home/thiago/Documents/CLionProjects/compilador/main.cpp
 iostream
 -
-unordered_map
--
 Lexico.h
 /home/thiago/Documents/CLionProjects/compilador/Lexico.h
 Sintatico.h

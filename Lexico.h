@@ -17,6 +17,7 @@ class Lexico {
 		string linha;
 		string buffer;
 		int linha_num = 0;
+		int linha_ultimo_token = 0;
 		int estado_atual;
 		string tokens[22];
 		const char *char_ptr;
@@ -30,7 +31,7 @@ class Lexico {
 	public:
 		Lexico(string arquivo, unordered_map<string, item_tabela> *tabela_simbolos);
 		item_tabela prox_token();
-
+		int get_pos();
 };
 
 #endif //COMPILADOR_LEXICO_H
