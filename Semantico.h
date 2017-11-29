@@ -22,6 +22,8 @@ class Semantico {
 		std::ofstream output;
 		item_tabela regra_semantica(int reducao, item_tabela nao_terminal, vector<item_tabela> simbolos);
 
+		int var_temp_num;
+
 	public:
 		void executar();
 		Semantico();

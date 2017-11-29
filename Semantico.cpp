@@ -63,17 +63,54 @@ item_tabela Semantico::regra_semantica(int reducao, item_tabela nao_terminal, ve
 		} break;
 		case 12: {
 			item_tabela ARG = simbolos.at(1);
-			if(ARG.tipo == "literal")
+			if(ARG.token == "literal")
 				output << "printf("+ARG.lexema+");" << endl;
-			else if(ARG.tipo == "num")
+			else if(ARG.token == "num")
 				output << "printf(\""+ARG.lexema+"\");" << endl;
+			else if(ARG.token == "id") {
+				if(ARG.tipo == "literal")
+					output << "printf(\"%s\","+ARG.lexema+");" << endl;
+				else if(ARG.tipo == "int")
+					output << "printf(\"%d\","+ARG.lexema+");" << endl;
+				else if(ARG.tipo == "double")
+					output << "printf(\"%lf\","+ARG.lexema+");" << endl;
+				else cout << "Erro: Variável não declarada" << endl;
+			} else cout << "Erro: Argumento não válido" << endl;
 		} break;
 		case 13:
 		case 14:
 		case 15: {
+			nao_terminal.token = simbolos.at(0).token;
 			nao_terminal.lexema = simbolos.at(0).lexema;
 			nao_terminal.tipo = simbolos.at(0).tipo;
+			if(nao_terminal.token == "id" && nao_terminal.tipo.empty())
+				cout << "Erro: Variável não declarada" << endl;
 		} break;
+		case 17: {
+			item_tabela id = simbolos.at(3);
+			item_tabela LD = simbolos.at(1);
+			item_tabela rcb = simbolos.at(2);
+			if(!id.tipo.empty()){
+				if(id.tipo == LD.tipo)
+					output << id.lexema << " " << rcb.tipo << " " << LD.lexema << ";" << endl;
+				else cout << "Erro: Tipos diferentes para atribuicao" << endl;
+			} else {
+				cout << "Erro: Variável não declarada" << endl;
+			} break;
+		}
+		case 18: {
+			item_tabela OPRD1 = simbolos.at(2);
+			item_tabela opm = simbolos.at(1);
+			item_tabela OPRD2 = simbolos.at(0);
+			if(OPRD1.tipo == OPRD2.tipo && OPRD1.tipo != "literal") {
+				nao_terminal.lexema = "T"+to_string(++var_temp_num);
+				output << "T" << var_temp_num << " = " <<
+					   OPRD1.lexema << " " << opm.tipo << " " << OPRD2.lexema << endl;
+
+			} else {
+				cout << "Erro: Operandos com tipos incompativeis" << endl;
+			}
+		}
 		default:
 			return nao_terminal;
 	}
