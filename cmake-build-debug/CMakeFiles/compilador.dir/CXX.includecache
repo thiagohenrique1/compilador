@@ -19,12 +19,24 @@ structs.h
 /home/thiago/compilador/structs.h
 
 /home/thiago/compilador/Semantico.cpp
+vector
+-
 Semantico.h
 /home/thiago/compilador/Semantico.h
 Sintatico.h
 /home/thiago/compilador/Sintatico.h
 
 /home/thiago/compilador/Semantico.h
+stack
+-
+fstream
+-
+unordered_map
+-
+vector
+-
+structs.h
+/home/thiago/compilador/structs.h
 
 /home/thiago/compilador/Sintatico.cpp
 vector

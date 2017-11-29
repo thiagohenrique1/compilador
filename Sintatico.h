@@ -12,6 +12,7 @@
 #define num_reducoes 30
 
 using std::string;
+using std::unordered_map;
 
 class Sintatico {
 
@@ -26,7 +27,7 @@ class Sintatico {
 		string erros[num_estados];
 
 		stack<uint8_t > pilha;
-		unordered_map<string, item_tabela> tabela_simbolos;
+		unordered_map<string, item_tabela> *tabela_simbolos;
 
 		std::ifstream file_tab;
 		std::ifstream file_gram;
@@ -43,7 +44,8 @@ class Sintatico {
 		int get_indice_nao_terminal(string simbolo);
 
 	public:
-		Sintatico(string arquivo_tabela, string arquivo_gramatica, string erros, string fonte);
+		Sintatico(unordered_map<string, item_tabela> *tabela_simb,
+				  string arquivo_tabela, string arquivo_gramatica, string erros, string fonte);
 		sintatico_acao executar();
 };
 

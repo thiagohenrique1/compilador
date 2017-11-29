@@ -3,7 +3,9 @@
 
 using namespace std;
 
-Sintatico::Sintatico(string arquivo_tabela, string arquivo_gramatica, string erros, string fonte) : lexico(fonte,&tabela_simbolos) {
+Sintatico::Sintatico(unordered_map<string, item_tabela> *tabela_simb,
+					 string arquivo_tabela, string arquivo_gramatica, string erros, string fonte)
+						: tabela_simbolos(tabela_simb), lexico(fonte,tabela_simbolos) {
 	file_tab.open(arquivo_tabela);
 	file_gram.open(arquivo_gramatica);
 	file_erros.open(erros);
@@ -118,11 +120,13 @@ string Sintatico::prox_valor(char delim){
 }
 
 void Sintatico::inserir_palavras_chave() {
-	string palavras[12] = {"inicio","varinicio","varfim","escreva","leia", "se",
+	string palavras[11] = {"inicio","varinicio","varfim","escreva","leia", "se",
 						   "entao","fimse","fim","real"};
-	for (int i = 0; i < 10; ++i) {
-		tabela_simbolos.insert({palavras[i],{palavras[i],palavras[i]}});
+	for (int i = 0; i < 9; ++i) {
+		tabela_simbolos->insert({palavras[i],{palavras[i],palavras[i]}});
 	}
-	tabela_simbolos.insert({"literal",{"lit","literal"}});
-	tabela_simbolos.insert({"inteiro",{"int","inteiro"}});
+	tabela_simbolos->insert({"literal",{"lit","literal","literal"}});
+	tabela_simbolos->insert({"inteiro",{"int","inteiro","int"}});
+	tabela_simbolos->insert({"real",{"real","real","double"}});
+
 }

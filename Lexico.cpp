@@ -25,11 +25,17 @@ item_tabela Lexico::prox_token() {
 	if(is_final(estado_atual)) {
 		string token = get_token();
 		item_tabela item = {token,buffer,};
+		if(token == "opr" || token == "opm") item.tipo = item.lexema;
+		if(token == "rcb") item.tipo = "=";
+		if(token == "lit") item.tipo = "literal";
+		if(token == "int") item.tipo = "int";
+		if(token == "real") item.tipo = "double";
 		buffer = "";
 		estado_atual = 1;
 		if(token != "comentario") {
-			if(tabela_simbolos->count(item.lexema) == 0)
-				(*tabela_simbolos)[item.lexema] = item;
+			if(tabela_simbolos->count(item.lexema) == 0) {
+				if(item.token == "id") (*tabela_simbolos)[item.lexema] = item;
+			} else return (*tabela_simbolos)[item.lexema];
 			return item;
 		}
 		else return prox_token();
