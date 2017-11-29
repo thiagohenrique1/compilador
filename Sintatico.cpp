@@ -1,3 +1,4 @@
+#include <vector>
 #include "Sintatico.h"
 
 using namespace std;
@@ -8,42 +9,50 @@ Sintatico::Sintatico(string arquivo_tabela, string arquivo_gramatica, string err
 	file_erros.open(erros);
 	ler_arquivos();
 	inserir_palavras_chave();
-}
 
-void Sintatico::executar() {
-	item_tabela entrada = lexico.prox_token();
+	entrada = lexico.prox_token();
 	if(entrada.token == "erro") {
 		cout << entrada.lexema << endl;
 		return;
 	}
-	cout << "Token lido: " + entrada.token << endl;
 	pilha.push(0);
-	while (true) {
-		uint8_t estado_topo = pilha.top();
-		int entrada_indice = get_indice_terminal(entrada.token);
-		action action = tabela_actions[estado_topo][entrada_indice];
-		if (action.acao == 'S') {
-			pilha.push(action.num);
-			entrada = lexico.prox_token();
-			if(entrada.token == "erro") {
-				cout << entrada.lexema << endl;
-				break;
-			}
-			cout << "Token lido: " + entrada.token << endl;
-		} else if (action.acao == 'R') {
-			gram_item regra = tabela_gram[action.num];
-			for (int i = 0; i < regra.size; ++i) pilha.pop();
-			estado_topo = pilha.top();
-			int nao_terminal_indice = get_indice_nao_terminal(regra.symb);
-			pilha.push(tabela_goto[estado_topo][nao_terminal_indice]);
-			cout << regra.line << endl;
-		} else if (action.acao == 'A') {
-			cout << "Aceito" << endl;
-			break;
-		} else if (action.acao == 'E'){
-			cout << "Erro sintático na linha " + to_string(lexico.get_pos()) + ": " + erros[action.num]<< endl;
-			break;
+}
+
+sintatico_acao Sintatico::executar() {
+	uint8_t estado_topo = pilha.top();
+	int entrada_indice = get_indice_terminal(entrada.token);
+	action action = tabela_actions[estado_topo][entrada_indice];
+	if (action.acao == 'S') {
+		pilha.push(action.num);
+		sintatico_acao retorno {'S',entrada,0};
+//		pilha_simbolos.push(entrada);
+		entrada = lexico.prox_token();
+		if(entrada.token == "erro") {
+			cout << entrada.lexema << endl;
+			return {'E'};
+		} else return retorno;
+	} else if (action.acao == 'R') {
+		gram_item regra = tabela_gram[action.num];
+//		vector<item_tabela> simbolos_reduzidos;
+		for (int i = 0; i < regra.size; ++i) {
+//			item_tabela simbolo = pilha_simbolos.top();
+//			simbolos_reduzidos.push_back(simbolo);
+//			pilha_simbolos.pop();
+			pilha.pop();
 		}
+		estado_topo = pilha.top();
+		int nao_terminal_indice = get_indice_nao_terminal(regra.symb);
+//		pilha_simbolos.push({regra.symb,regra.symb});
+		pilha.push(tabela_goto[estado_topo][nao_terminal_indice]);
+		cout << regra.line << endl;
+		item_tabela nao_terminal = {regra.symb,regra.symb};
+		return {'R',nao_terminal,regra.size,regra.regra_num};
+	} else if (action.acao == 'A') {
+		cout << "Aceito" << endl;
+		return {'A'};
+	} else if (action.acao == 'E'){
+		cout << "Erro sintático na linha " + to_string(lexico.get_pos()) + ": " + erros[action.num]<< endl;
+		return {'E'};
 	}
 }
 
@@ -88,12 +97,14 @@ void Sintatico::ler_arquivos() {
 		}
 	}
 
+	int regra_num = 1;
 	for (int i = 1; i <= num_reducoes; ++i) {
 		getline(file_gram, tabela_gram[i].line);
 		char_ptr = tabela_gram[i].line.c_str();
 		tabela_gram[i].symb = prox_valor('-');
 		char_ptr++;
 		tabela_gram[i].size = 0;
+		tabela_gram[i].regra_num = regra_num++;
 		while(!prox_valor(' ').empty()) tabela_gram[i].size++;
 	}
 

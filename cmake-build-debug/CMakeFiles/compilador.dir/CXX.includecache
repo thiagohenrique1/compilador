@@ -6,41 +6,53 @@
 
 #IncludeRegexTransform: 
 
-/home/thiago/Documents/CLionProjects/compilador/Lexico.cpp
+/home/thiago/compilador/Lexico.cpp
 Lexico.h
-/home/thiago/Documents/CLionProjects/compilador/Lexico.h
+/home/thiago/compilador/Lexico.h
 
-/home/thiago/Documents/CLionProjects/compilador/Lexico.h
+/home/thiago/compilador/Lexico.h
 fstream
 -
 unordered_map
 -
 structs.h
-/home/thiago/Documents/CLionProjects/compilador/structs.h
+/home/thiago/compilador/structs.h
 
-/home/thiago/Documents/CLionProjects/compilador/Sintatico.cpp
+/home/thiago/compilador/Semantico.cpp
+Semantico.h
+/home/thiago/compilador/Semantico.h
 Sintatico.h
-/home/thiago/Documents/CLionProjects/compilador/Sintatico.h
+/home/thiago/compilador/Sintatico.h
 
-/home/thiago/Documents/CLionProjects/compilador/Sintatico.h
+/home/thiago/compilador/Semantico.h
+
+/home/thiago/compilador/Sintatico.cpp
+vector
+-
+Sintatico.h
+/home/thiago/compilador/Sintatico.h
+
+/home/thiago/compilador/Sintatico.h
 fstream
 -
 stack
 -
 structs.h
-/home/thiago/Documents/CLionProjects/compilador/structs.h
+/home/thiago/compilador/structs.h
 Lexico.h
-/home/thiago/Documents/CLionProjects/compilador/Lexico.h
+/home/thiago/compilador/Lexico.h
 
-/home/thiago/Documents/CLionProjects/compilador/main.cpp
+/home/thiago/compilador/main.cpp
 iostream
 -
 Lexico.h
-/home/thiago/Documents/CLionProjects/compilador/Lexico.h
+/home/thiago/compilador/Lexico.h
 Sintatico.h
-/home/thiago/Documents/CLionProjects/compilador/Sintatico.h
+/home/thiago/compilador/Sintatico.h
+Semantico.h
+/home/thiago/compilador/Semantico.h
 
-/home/thiago/Documents/CLionProjects/compilador/structs.h
+/home/thiago/compilador/structs.h
 iostream
 -
 

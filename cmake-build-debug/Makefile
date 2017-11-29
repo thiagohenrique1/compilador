@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/thiago/Software/clion-2017.2.3/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/thiago/Downloads/clion-2017.2.3/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/thiago/Software/clion-2017.2.3/bin/cmake/bin/cmake -E remove -f
+RM = /home/thiago/Downloads/clion-2017.2.3/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/thiago/Documents/CLionProjects/compilador
+CMAKE_SOURCE_DIR = /home/thiago/compilador
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/thiago/Documents/CLionProjects/compilador/cmake-build-debug
+CMAKE_BINARY_DIR = /home/thiago/compilador/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/thiago/Documents/CLionProjects/compilador/cmake-build-d
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/thiago/Software/clion-2017.2.3/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/thiago/Downloads/clion-2017.2.3/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/thiago/Software/clion-2017.2.3/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/thiago/Downloads/clion-2017.2.3/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/CMakeFiles /home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/thiago/compilador/cmake-build-debug/CMakeFiles /home/thiago/compilador/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/thiago/compilador/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -150,6 +150,33 @@ Lexico.cpp.s:
 	$(MAKE) -f CMakeFiles/compilador.dir/build.make CMakeFiles/compilador.dir/Lexico.cpp.s
 .PHONY : Lexico.cpp.s
 
+Semantico.o: Semantico.cpp.o
+
+.PHONY : Semantico.o
+
+# target to build an object file
+Semantico.cpp.o:
+	$(MAKE) -f CMakeFiles/compilador.dir/build.make CMakeFiles/compilador.dir/Semantico.cpp.o
+.PHONY : Semantico.cpp.o
+
+Semantico.i: Semantico.cpp.i
+
+.PHONY : Semantico.i
+
+# target to preprocess a source file
+Semantico.cpp.i:
+	$(MAKE) -f CMakeFiles/compilador.dir/build.make CMakeFiles/compilador.dir/Semantico.cpp.i
+.PHONY : Semantico.cpp.i
+
+Semantico.s: Semantico.cpp.s
+
+.PHONY : Semantico.s
+
+# target to generate assembly for a file
+Semantico.cpp.s:
+	$(MAKE) -f CMakeFiles/compilador.dir/build.make CMakeFiles/compilador.dir/Semantico.cpp.s
+.PHONY : Semantico.cpp.s
+
 Sintatico.o: Sintatico.cpp.o
 
 .PHONY : Sintatico.o
@@ -216,6 +243,9 @@ help:
 	@echo "... Lexico.o"
 	@echo "... Lexico.i"
 	@echo "... Lexico.s"
+	@echo "... Semantico.o"
+	@echo "... Semantico.i"
+	@echo "... Semantico.s"
 	@echo "... Sintatico.o"
 	@echo "... Sintatico.i"
 	@echo "... Sintatico.s"

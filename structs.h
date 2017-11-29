@@ -19,6 +19,14 @@ struct gram_item {
 	string symb;
 	uint8_t size;
 	string line;
+	int regra_num;
+};
+
+struct sintatico_acao {
+	char acao;
+	item_tabela simbolo;
+	int num_reduzidos;
+	int regra;
 };
 
 #endif //COMPILADOR_STRUCTS_H

@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/compilador.dir/main.cpp.o"
   "CMakeFiles/compilador.dir/Lexico.cpp.o"
   "CMakeFiles/compilador.dir/Sintatico.cpp.o"
+  "CMakeFiles/compilador.dir/Semantico.cpp.o"
   "compilador.pdb"
   "compilador"
 )

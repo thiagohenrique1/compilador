@@ -27,12 +27,15 @@ class Sintatico {
 
 		stack<uint8_t > pilha;
 		unordered_map<string, item_tabela> tabela_simbolos;
+//		stack<item_tabela> pilha_simbolos;
 
 		std::ifstream file_tab;
 		std::ifstream file_gram;
 		std::ifstream file_erros;
 
 		Lexico lexico;
+
+		item_tabela entrada;
 
 		string prox_valor(char delim);
 		void ler_arquivos();
@@ -42,7 +45,7 @@ class Sintatico {
 
 	public:
 		Sintatico(string arquivo_tabela, string arquivo_gramatica, string erros, string fonte);
-		void executar();
+		sintatico_acao executar();
 };
 
 #endif //COMPILADOR_SINTATICO_H

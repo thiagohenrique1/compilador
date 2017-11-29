@@ -4,9 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/thiago/Documents/CLionProjects/compilador/Lexico.cpp" "/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/CMakeFiles/compilador.dir/Lexico.cpp.o"
-  "/home/thiago/Documents/CLionProjects/compilador/Sintatico.cpp" "/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/CMakeFiles/compilador.dir/Sintatico.cpp.o"
-  "/home/thiago/Documents/CLionProjects/compilador/main.cpp" "/home/thiago/Documents/CLionProjects/compilador/cmake-build-debug/CMakeFiles/compilador.dir/main.cpp.o"
+  "/home/thiago/compilador/Lexico.cpp" "/home/thiago/compilador/cmake-build-debug/CMakeFiles/compilador.dir/Lexico.cpp.o"
+  "/home/thiago/compilador/Semantico.cpp" "/home/thiago/compilador/cmake-build-debug/CMakeFiles/compilador.dir/Semantico.cpp.o"
+  "/home/thiago/compilador/Sintatico.cpp" "/home/thiago/compilador/cmake-build-debug/CMakeFiles/compilador.dir/Sintatico.cpp.o"
+  "/home/thiago/compilador/main.cpp" "/home/thiago/compilador/cmake-build-debug/CMakeFiles/compilador.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
