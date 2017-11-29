@@ -27,7 +27,6 @@ class Sintatico {
 
 		stack<uint8_t > pilha;
 		unordered_map<string, item_tabela> tabela_simbolos;
-//		stack<item_tabela> pilha_simbolos;
 
 		std::ifstream file_tab;
 		std::ifstream file_gram;

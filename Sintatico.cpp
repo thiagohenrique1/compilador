@@ -25,7 +25,6 @@ sintatico_acao Sintatico::executar() {
 	if (action.acao == 'S') {
 		pilha.push(action.num);
 		sintatico_acao retorno {'S',entrada,0};
-//		pilha_simbolos.push(entrada);
 		entrada = lexico.prox_token();
 		if(entrada.token == "erro") {
 			cout << entrada.lexema << endl;
@@ -33,16 +32,9 @@ sintatico_acao Sintatico::executar() {
 		} else return retorno;
 	} else if (action.acao == 'R') {
 		gram_item regra = tabela_gram[action.num];
-//		vector<item_tabela> simbolos_reduzidos;
-		for (int i = 0; i < regra.size; ++i) {
-//			item_tabela simbolo = pilha_simbolos.top();
-//			simbolos_reduzidos.push_back(simbolo);
-//			pilha_simbolos.pop();
-			pilha.pop();
-		}
+		for (int i = 0; i < regra.size; ++i) pilha.pop();
 		estado_topo = pilha.top();
 		int nao_terminal_indice = get_indice_nao_terminal(regra.symb);
-//		pilha_simbolos.push({regra.symb,regra.symb});
 		pilha.push(tabela_goto[estado_topo][nao_terminal_indice]);
 		cout << regra.line << endl;
 		item_tabela nao_terminal = {regra.symb,regra.symb};
