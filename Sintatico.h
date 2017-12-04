@@ -47,6 +47,7 @@ class Sintatico {
 		Sintatico(unordered_map<string, item_tabela> *tabela_simb,
 				  string arquivo_tabela, string arquivo_gramatica, string erros, string fonte);
 		sintatico_acao executar();
+        string get_pos();
 };
 
 #endif //COMPILADOR_SINTATICO_H

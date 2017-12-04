@@ -130,3 +130,7 @@ void Sintatico::inserir_palavras_chave() {
 	tabela_simbolos->insert({"real",{"real","real","double"}});
 
 }
+
+string Sintatico::get_pos(){
+    return to_string(lexico.get_pos());
+}

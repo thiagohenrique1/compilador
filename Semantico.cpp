@@ -5,7 +5,7 @@
 using namespace std;
 
 void Semantico::executar(){
-	Sintatico sintatico(&tabela_simbolos,"tabela.csv","gramatica.txt","erros.txt","texto.alg");
+    Sintatico sintatico(&tabela_simbolos,"tabela.csv","gramatica.txt","erros.txt","texto.alg");
 	sintatico_acao retorno;
 	do {
 		retorno = sintatico.executar();
@@ -21,6 +21,10 @@ void Semantico::executar(){
 					pilha.pop();
 				}
 				item_tabela nao_terminal = regra_semantica(retorno.regra,retorno.simbolo, simbolos_reduzidos);
+                if(nao_terminal.token == "erro"){
+                    cout << "Erro semantico na linha "+sintatico.get_pos()+nao_terminal.lexema<< endl;
+                    return;
+                }
 				pilha.push(nao_terminal);
 			} break;
 			case 'A':
@@ -60,7 +64,7 @@ item_tabela Semantico::regra_semantica(int reducao, item_tabela nao_terminal, ve
 				output << "scanf(\"%d\",&" << id.lexema << ");" << endl;
 			else if(id.tipo == "double")
 				output << "scanf(\"%lf\",&" << id.lexema << ");" << endl;
-			else cout << "Erro: Variável não declarada" << endl;
+			else return {"erro",": Variável não declarada"};
 		} break;
 		case 12: {
 			item_tabela ARG = simbolos.at(1);
@@ -76,7 +80,7 @@ item_tabela Semantico::regra_semantica(int reducao, item_tabela nao_terminal, ve
 				else if(ARG.tipo == "double")
 					output << "printf(\"%lf\","+ARG.lexema+");" << endl;
 				else cout << "Erro: Variável não declarada" << endl;
-			} else cout << "Erro: Argumento não válido" << endl;
+			} else return {"erro",": Argumento não válido"};
 		} break;
 		case 13:
 		case 14:
@@ -86,7 +90,7 @@ item_tabela Semantico::regra_semantica(int reducao, item_tabela nao_terminal, ve
 			nao_terminal.lexema = simbolos.at(0).lexema;
 			nao_terminal.tipo = simbolos.at(0).tipo;
 			if(nao_terminal.token == "id" && nao_terminal.tipo.empty())
-				cout << "Erro: Variável não declarada" << endl;
+				return {"erro",": Variável não declarada"};
 		} break;
 		case 17: {
 			item_tabela id = simbolos.at(3);
@@ -95,10 +99,8 @@ item_tabela Semantico::regra_semantica(int reducao, item_tabela nao_terminal, ve
 			if(!id.tipo.empty()){
 				if(id.tipo == LD.tipo || (LD.token == "num" && id.tipo != "literal"))
 					output << id.lexema << " " << rcb.tipo << " " << LD.lexema << ";" << endl;
-				else cout << "Erro: Tipos diferentes para atribuicao" << endl;
-			} else {
-				cout << "Erro: Variável não declarada" << endl;
-			}
+				else return {"erro",": Tipos diferentes para atribuicao"};
+			} else return {"erro",": Variável não declarada"};
 		} break;
 		case 18: {
 			item_tabela OPRD1 = simbolos.at(2);
@@ -106,7 +108,7 @@ item_tabela Semantico::regra_semantica(int reducao, item_tabela nao_terminal, ve
 			item_tabela OPRD2 = simbolos.at(0);
 
 			if((OPRD1.token == "id" && OPRD1.tipo == "literal") || (OPRD2.token == "id" && OPRD2.tipo == "literal")) {
-				cout << "Erro: Operandos com tipos incompativeis" << endl;
+				return {"erro",": Operandos com tipos incompativeis"};
 			} else {
 				nao_terminal.lexema = "T"+to_string(++var_temp_num);
 				nao_terminal.token = "id";
@@ -134,7 +136,7 @@ item_tabela Semantico::regra_semantica(int reducao, item_tabela nao_terminal, ve
 			item_tabela OPRD2 = simbolos.at(0);
 
 			if((OPRD1.token == "id" && OPRD1.tipo == "literal") || (OPRD2.token == "id" && OPRD2.tipo == "literal")) {
-				cout << "Erro: Operandos com tipos incompatíveis" << endl;
+				return {"erro",": Operandos com tipos incompatíveis"};
 			} else {
 				nao_terminal.lexema = "T"+to_string(++var_temp_num);
 				output << "int T" << var_temp_num << " = " <<
