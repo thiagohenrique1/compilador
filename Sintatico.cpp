@@ -25,6 +25,7 @@ sintatico_acao Sintatico::executar() {
 	int entrada_indice = get_indice_terminal(entrada.token);
 	action action = tabela_actions[estado_topo][entrada_indice];
 	if (action.acao == 'S') {
+		linha_ultimo_token = lexico.get_pos();
 		pilha.push(action.num);
 		sintatico_acao retorno {'S',entrada,0};
 		entrada = lexico.prox_token();
@@ -45,7 +46,7 @@ sintatico_acao Sintatico::executar() {
 		cout << "Aceito" << endl;
 		return {'A'};
 	} else if (action.acao == 'E'){
-		cout << "Erro sintático na linha " + to_string(lexico.get_pos()) + ": " + erros[action.num]<< endl;
+		cout << "Erro sintático na linha " + to_string(linha_ultimo_token) + ": " + erros[action.num]<< endl;
 		return {'E'};
 	}
 }
@@ -132,5 +133,5 @@ void Sintatico::inserir_palavras_chave() {
 }
 
 string Sintatico::get_pos(){
-    return to_string(lexico.get_pos());
+    return to_string(linha_ultimo_token);
 }

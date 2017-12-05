@@ -18,6 +18,7 @@ class Sintatico {
 
 	private:
 		const char* char_ptr;
+		int linha_ultimo_token = 0;
 
 		string terminais[num_terminais];
 		string nao_terminais[num_nao_terminais];

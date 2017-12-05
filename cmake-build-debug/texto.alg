@@ -10,6 +10,9 @@ inicio
 {nao ler}
    escreva "Digite um numero:";
    leia B;
+   escreva "Seu numero vezes dois:\n";
+   c <- B*2;
+   escreva c;
 
    B <- 2;
    B <- 3.5;

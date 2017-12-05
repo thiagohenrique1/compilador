@@ -15,12 +15,14 @@ item_tabela Lexico::prox_token() {
 	if(file.eof()) return {"$","eof"};
 	int proximo_estado = tabela_prox_estado[estado_atual][*char_ptr];
 	while (proximo_estado != 0) {
-		if(proximo_estado != 1) buffer += *char_ptr;
+		if(proximo_estado != 1) {
+			buffer += *char_ptr;
+			linha_ultimo_token = linha_num;
+		}
 		estado_atual = proximo_estado;
 		char_ptr++;
 		if(*char_ptr == '\0') proxima_linha();
 		proximo_estado = tabela_prox_estado[estado_atual][*char_ptr];
-		if(proximo_estado > 1) linha_ultimo_token = linha_num;
 	}
 	if(is_final(estado_atual)) {
 		string token = get_token();
@@ -41,7 +43,7 @@ item_tabela Lexico::prox_token() {
 		else return prox_token();
 	}
 	string erro = get_erro(estado_atual,buffer);
-	return {"erro","Erro léxico na linha "+to_string(linha_num)+": "+erro};
+	return {"erro","Erro léxico na linha "+to_string(linha_ultimo_token)+": "+erro};
 }
 
 void Lexico::proxima_linha() {
