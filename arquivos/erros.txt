@@ -1,0 +1,31 @@
+0,O programa deve iniciar com o token "inicio"
+1,Fim de arquivo esperado
+2,Token esperado "varinicio" nao encontrado
+3,Tokens permitidos: se, id, escreva, leia ou fim
+4,"varinicio" deve ser seguido de id para declarar variável ou do token "varfim"
+6,Tokens permitidos: se, id, escreva, leia ou fim
+7,Tokens permitidos: se, id, escreva, leia ou fim
+8,Tokens permitidos: se, id, escreva, leia ou fim
+10,Comando "leia" deve ser seguido de um id
+11,Comando "escreva" deve ser seguido de um literal, numeral ou id
+12,Id deve ser seguido do simbolo "<-" para fazer atribuição
+13,Tokens permitidos: se, id, escreva, leia ou fim
+14,Token "se" deve ser seguido do símbolo "("
+15,Variável deve ser seguida do tipo (inteiro, real ou literal) na declaração
+16,"varfim" deve ser seguido de ponto e virgula
+17,Declaração de variáveis deve ser terminada com "varfim"
+21,Falta ponto e virgula
+22,Falta ponto e virgula
+27,Atribuição deve ser seguida de um id ou numeral
+30,Falta ponto e virgula
+31,Tokens permitidos: Operador aritmetico ou ponto e virgula
+34,Operadores aritmeticos devem ser seguidos de ids ou numerais
+38,Tokens permitidos: se, fimse, escreva, leia ou id
+39,Tokens permitidos: se, fimse, escreva, leia ou id
+40,Tokens permitidos: se, fimse, escreva, leia ou id
+44,Tokens permitidos: id ou numeral
+45,Parenteses deve ser fechado com ")"
+46,Expressão deve ser seguida do token "então"
+48,Operadores relacionais esperados (<, > ou =)
+49,Tokens permitidos: id ou numeral
+51,Falta ponto e virgula

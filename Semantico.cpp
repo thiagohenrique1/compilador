@@ -5,7 +5,8 @@
 using namespace std;
 
 void Semantico::executar(){
-    Sintatico sintatico(&tabela_simbolos,"tabela.csv","gramatica.txt","erros.txt","texto.alg");
+    Sintatico sintatico(&tabela_simbolos,"../arquivos/tabela.csv","../arquivos/gramatica.txt",
+						"../arquivos/erros.txt","../arquivos/texto.alg");
 	sintatico_acao retorno;
 	do {
 		retorno = sintatico.executar();
@@ -99,7 +100,7 @@ item_tabela Semantico::regra_semantica(int reducao, item_tabela nao_terminal, ve
 			if(!id.tipo.empty()){
 				if(id.tipo == LD.tipo || (LD.token == "num" && id.tipo != "literal"))
 					output << id.lexema << " " << rcb.tipo << " " << LD.lexema << ";" << endl;
-				else return {"erro",": Tipos diferentes para atribuicao"};
+				else return {"erro",": Tipos diferentes na atribuicao"};
 			} else return {"erro",": Variável não declarada"};
 		} break;
 		case 18: {
@@ -107,13 +108,17 @@ item_tabela Semantico::regra_semantica(int reducao, item_tabela nao_terminal, ve
 			item_tabela opm = simbolos.at(1);
 			item_tabela OPRD2 = simbolos.at(0);
 
-			if((OPRD1.token == "id" && OPRD1.tipo == "literal") || (OPRD2.token == "id" && OPRD2.tipo == "literal")) {
-				return {"erro",": Operandos com tipos incompativeis"};
+			if((OPRD1.token == "id" && OPRD2.token == "id" && OPRD1.tipo != OPRD2.tipo)) {
+				return {"erro", ": Operandos com tipos diferentes"};
+			} else if(OPRD1.tipo == "literal" || OPRD2.tipo == "literal" ){
+				return {"erro",": Operando de tipo literal nao é permitido"};
 			} else {
+				if(OPRD1.tipo == "double" || OPRD2.tipo == "double") {
+					nao_terminal.tipo = "double";
+				} else nao_terminal.tipo = "int";
 				nao_terminal.lexema = "T"+to_string(++var_temp_num);
 				nao_terminal.token = "id";
-				nao_terminal.tipo = "int";
-				output << "int T" << var_temp_num << " = " <<
+				output << nao_terminal.tipo << " T" << var_temp_num << " = " <<
 					   OPRD1.lexema << " " << opm.tipo << " " << OPRD2.lexema<<";"<< endl;
 			}
 		} break;
@@ -135,14 +140,15 @@ item_tabela Semantico::regra_semantica(int reducao, item_tabela nao_terminal, ve
 			item_tabela opr = simbolos.at(1);
 			item_tabela OPRD2 = simbolos.at(0);
 
-			if((OPRD1.token == "id" && OPRD1.tipo == "literal") || (OPRD2.token == "id" && OPRD2.tipo == "literal")) {
-				return {"erro",": Operandos com tipos incompatíveis"};
+			if((OPRD1.token == "id" && OPRD2.token == "id" && OPRD1.tipo != OPRD2.tipo)) {
+				return {"erro", ": Operandos com tipos diferentes"};
+			} else if(OPRD1.tipo == "literal" || OPRD2.tipo == "literal" ){
+				return {"erro",": Operando de tipo literal nao é permitido"};
 			} else {
 				nao_terminal.lexema = "T"+to_string(++var_temp_num);
 				output << "int T" << var_temp_num << " = " <<
 					   OPRD1.lexema << " " << opr.tipo << " " << OPRD2.lexema<<";"<< endl;
 			}
-
 		} break;
 		default:
 			return nao_terminal;
